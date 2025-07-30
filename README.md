@@ -1,7 +1,4 @@
-![Alt text for the image](path/to/your/image.png)
-
-![GitHub Logo](https://raw.githubusercontent.com/username/repository/main/assets/logo.png)
-
+![](VS.png)
 # GPU-Accelerated-Virtual-Screening-with-Vina-GPU
 This repository provides a Python script for an efficient, automated molecular docking workflow by integrating Vina-GPU. The pipeline manages the entire process: preparing proteins and ligands, executing docking, and analyzing the results. It also offers flexible configurations for defining the binding pocket and handling output data.
 
@@ -70,4 +67,23 @@ python docking_pipeline.py --mgl_tools_path /path/to/MGLTools-1.5.7 --vina_path 
 * --gpu_id: Specify the GPU ID to use (e.g., 0, 1). Leave empty for Vina-GPU's default behavior.
 * --center_x, --center_y, --center_z: X, Y, Z coordinates for the center of the docking box.
 * --size_x, --size_y, --size_z: X, Y, Z dimensions of the docking box.
-### Note: If lig_id is provided, these explicit center/size arguments will be ignored, and the pocket will be calculated based on the reference ligand. If neither lig_id nor all center/size coordinates are provided, blind docking will be performed.
+## $${\color{red}Note:}$$ If lig_id is provided, these explicit center/size arguments will be ignored, and the pocket will be calculated based on the reference ligand. If neither lig_id nor all center/size coordinates are provided, blind docking will be performed.
+
+# Example
+### To run a docking simulation with a specific protein chain and a reference ligand, and save poses with a docking score of -7.0 or better:
+python docking_pipeline.py \
+    --mgl_tools_path /opt/MGLTools-1.5.7 \
+    --vina_path /usr/local/bin \
+    --protein_file 1iep.pdb \
+    --lig_smiles_file my_compounds.csv \
+    --chain A \
+    --lig_id STI \
+    --threshold -7.0
+
+### To perform blind docking on a protein with a docking score of -1.0 or better::
+python docking_pipeline.py \
+    --mgl_tools_path /opt/MGLTools-1.5.7 \
+    --vina_path /usr/local/bin \
+    --protein_file 1iep.pdb \
+    --lig_smiles_file my_compounds.csv
+
