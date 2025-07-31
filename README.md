@@ -73,7 +73,7 @@ python docking_pipeline.py --mgl_tools_path /path/to/MGLTools-1.5.7 --vina_path 
 ### To run a docking simulation with a specific protein chain and a reference ligand, and save poses with a docking score of -7.0 or better:
 python docking_pipeline.py \
     --mgl_tools_path /opt/MGLTools-1.5.7 \
-    --vina_path /usr/local/bin \
+    --vina_path /opt/Vina-GPU-2.1/AutoDock-Vina-GPU-2.1 \
     --protein_file 1iep.pdb \
     --lig_smiles_file my_compounds.csv \
     --chain A \
@@ -83,7 +83,7 @@ python docking_pipeline.py \
 ### To perform blind docking on a protein with a docking score of -1.0 or better::
 python docking_pipeline.py \
     --mgl_tools_path /opt/MGLTools-1.5.7 \
-    --vina_path /usr/local/bin \
+    --vina_path /opt/Vina-GPU-2.1/AutoDock-Vina-GPU-2.1 \
     --protein_file 1iep.pdb \
     --lig_smiles_file my_compounds.csv
 
